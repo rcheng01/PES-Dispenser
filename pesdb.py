@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import pickle
 
 players = []
-for i in range(1, 400):
+for i in range(324,401):
     url = "http://pesdb.net/pes2019/?page=" + str(i)
     website = requests.get(url)
     soup = BeautifulSoup(website.text, "lxml")
@@ -16,7 +16,7 @@ for i in range(1, 400):
     players += new_players
     updated_players = [str(p) for p in players if 'http' not in str(p)]
     print(updated_players)
-    pickle.dump(updated_players, open('players.pkl', 'wb'))
+    pickle.dump(updated_players, open('players2.pkl', 'wb'))
     time.sleep(0.5)
 
 
